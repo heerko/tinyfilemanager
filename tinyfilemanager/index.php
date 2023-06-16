@@ -2320,7 +2320,8 @@ function add_local_stylesheet()
 			if ($file === 'index.css') {
 				$rel_path = str_replace(getcwd(), '', $path);
 				global $http_host;
-				echo '<link rel="stylesheet" href="//' . $http_host . $rel_path . '/' . urlencode($file) . '">';
+				// output the link tag with a random query string to force reload
+				echo '<link rel="stylesheet" href="//' . $http_host . $rel_path . '/' . urlencode($file) . '?v=' . rand() . '">';
 			}
 		}
 	}
