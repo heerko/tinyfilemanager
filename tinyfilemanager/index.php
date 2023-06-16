@@ -2303,6 +2303,10 @@ function add_local_stylesheet()
 	if (FM_PATH != '') {
 		$path .= '/' . FM_PATH;
 	}
+	// if it is the root, return
+	if ($path == '/') {
+		return;
+	}
 	$objects = is_readable($path) ? scandir($path) : array();
 	$current_path = array_slice(explode("/", $path), -1)[0];
 	if (is_array($objects) && fm_is_exclude_items($current_path)) {
