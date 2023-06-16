@@ -19,3 +19,7 @@ To start run
 The `restart:always` directives in docker-compose.yml should make sure
 that the server restarts then the Pi does. 
 Make sure Docker starts with `sudo systemctl start docker`.
+
+The line `- ./nginx-config/default.conf:/etc/nginx/conf.d/default.conf` maps
+an external hd connected to the Raspberry pi to the docker instance and the
+filemanager uses that directory for storage.
