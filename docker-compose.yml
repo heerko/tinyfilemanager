@@ -10,9 +10,10 @@ services:
     networks:
       - internal
     volumes:
-      - ./data:/var/www/html
+      - ./tinyfilemanager:/var/www/html
       - ./logs/nginx:/var/log/nginx
       - ./nginx-config/default.conf:/etc/nginx/conf.d/default.conf
+      # map a harddisk to a directory in the container
       - /media/hrk/SOILENT:/var/www/html/files:rw
   php:
     image: php:fpm-alpine
@@ -20,7 +21,7 @@ services:
     networks:
       - internal
     volumes:
-      - ./data:/var/www/html
+      - ./tinyfilemanager:/var/www/html
       - ./logs/php.log:/var/log/fpm-php.www.log
       - /media/hrk/SOILENT:/var/www/html/files:rw
 networks:
